@@ -83,7 +83,7 @@ void AReferee::Tick(float DeltaTime)
 void AReferee::DetermineHandShape(EHandState& OutHandState)
 {
 	uint8 ExtendedCount = 0;
-	for (uint8 i = 0; i < IsExtendFinger[i]; ++i)
+	for (uint8 i = 0; i < IsExtendFinger.Num(); ++i)
 	{
 		ExtendedCount += IsExtendFinger[i];  // IsExtendFinger[i] : True or False
 	}
@@ -104,6 +104,8 @@ void AReferee::DetermineHandShape(EHandState& OutHandState)
 	{
 		OutHandState = EHandState::None;
 	}
+
+	// UE_LOG(LogTemp, Log, TEXT("ExtendedCount : %d"), ExtendedCount);
 }
 
 void AReferee::LogEHandState(EHandState InHandState)
